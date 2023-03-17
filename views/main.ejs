@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Digital Grammar Teacher</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Digital Grammar Teacher</h2>
+      <p>
+        <span id="para"> </span>Check your English text for grammar, spelling, and punctuation errors
+        with your Digital Grammar Teacher.
+      </p>
+
+     <grammarly-editor-plugin>
+       <textarea
+        id="textarea"
+        class="textarea"
+        placeholder="Start Writing Here!!"
+        <% if (!param) { %>maxlength="50"<% } %>
+        spellcheck="true"
+      >
+    </textarea>
+</grammarly-editor-plugin> 
+
+      <button onclick=copyText()>Copy Text</button>
+      <p><button type="button" onclick=runSpeechRecognition()>Speech to Text</button> &nbsp; <span id="action"></span></p>
+
+      <div class="counter-container">
+        <p>Total character: <span id="total-conter"> 0</span></p>
+        <% if (!param) { %>
+          <p>
+            Remaining:
+            <span class="remaining-counter" id="remaining-counter">50</span>
+          </p>
+          <% } %>
+      </div>
+      
+    <button id = "logout-button">Logout</button>
+    <button id = "speak-button">Speak</button>
+
+    </div>
+
+<script src="https://unpkg.com/@grammarly/editor-sdk?clientId=client_3rDnwYiv6o7oEoaUuv9emh"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
